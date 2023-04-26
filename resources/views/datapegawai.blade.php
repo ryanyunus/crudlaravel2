@@ -9,7 +9,7 @@
   <body>
     <h1 class="text-center mb-4">Data Pegawai!</h1>
     <div class="container">
-      <button type="button" class="btn btn-success">Tambah +</button>
+      <button type="button" class="btn btn-success">Tambah +</button> 
       <div class="row">
             <table class="table table-striped">
         <thead>
