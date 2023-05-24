@@ -32,6 +32,10 @@
                     <label for="exampleInputEmail1" class="form-label">No Telpon</label>
                     <input type="number" name="notelpon" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$data->notelpon}}"> 
                   </div>
+                  <div class="mb-3">
+                    <label for="exampleInputFile" class="form-label">Foto</label>
+                    <input type="file" class="form-control" name="foto" id="exampleInputFile">
+                  </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

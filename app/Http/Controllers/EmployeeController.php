@@ -20,8 +20,15 @@ class EmployeeController extends Controller
     public function insertdata(Request $request)
     {
        // dd($request->all());
-        Employee::create($request->all());
-        return redirect()->route('pegawai')->with('success','Data Berhasil Ditambahkan');
+       $data = Employee::create($request->all());
+
+       if ($request->hasFile('foto')) {
+           $request->file('foto')->move('fotopegawai/', $request->file('foto')->getClientOriginalName()); 
+           $data->foto = $request->file('foto')->getClientOriginalName();
+           $data->save();
+       } 
+       return redirect()->route('pegawai')->with('success', 'Data Berhasil Ditambahkan');
+       
     }
     public function tampilkandata($id)
     {
@@ -29,11 +36,20 @@ class EmployeeController extends Controller
         //dd($data);
         return view('tampildata', compact('data'));
     }
-    public function updatedata(Request $request, $id){
+    public function updatedata(Request $request, $id)
+    {
         $data = Employee::find($id);
         $data->update($request->all());
-        return redirect()->route('pegawai')->with('success','Data Berhasil Diupdate');
+
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('fotopegawai/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
+
+        return redirect()->route('pegawai')->with('success', 'Data Berhasil Diupdate');
     }
+
     public function delete($id)
     {
         $data = Employee::find($id);
