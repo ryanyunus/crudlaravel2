@@ -65,20 +65,21 @@
   </body>
   <script>
     $('.delete').click(function(){
+      var pegawaiid = $(this).attr('data-id');
       swal({
-              title: "Are you sure?",
-              text: "Once deleted, you will not be able to recover this imaginary file!",
+              title: "Apa Kamu Yakin?",
+              text: "Kamu akan menghapus data pegawai dengan id "+pegawaiid+" ",
               icon: "warning",
               buttons: true,
               dangerMode: true,
             })
             .then((willDelete) => {
               if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
+                swal("Data berhasil dihapus!", {
                   icon: "success",
                 });
               } else {
-                swal("Your imaginary file is safe!");
+                swal("Data tidak jadi dihapus!");
               }
           });
         });
