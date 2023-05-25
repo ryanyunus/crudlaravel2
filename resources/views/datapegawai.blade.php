@@ -46,7 +46,7 @@
             <td>{{$row->created_at->format('D M Y')}}</td>
             <td>
               <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info ">Edit</a>
-              <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}">Delete</a>
+              <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama}}">Delete</a>
 
             </td>
           </tr>
@@ -66,15 +66,17 @@
   <script>
     $('.delete').click(function(){
       var pegawaiid = $(this).attr('data-id');
+      var nama = $(this).attr('data-nama')
       swal({
               title: "Apa Kamu Yakin?",
-              text: "Kamu akan menghapus data pegawai dengan id "+pegawaiid+" ",
+              text: "Kamu akan menghapus data pegawai dengan nama "+nama+" ",
               icon: "warning",
               buttons: true,
               dangerMode: true,
             })
             .then((willDelete) => {
               if (willDelete) {
+                window.location = "/delete/"+pegawaiid+""
                 swal("Data berhasil dihapus!", {
                   icon: "success",
                 });
