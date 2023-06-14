@@ -43,6 +43,20 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Register Service Providers
+|--------------------------------------------------------------------------
+|
+| Next, we will register the service providers. This will allow us to
+| configure and use additional services in the application. You can
+| add your own service providers to this array to grant expanded
+| functionality to your applications.
+|
+*/
+
+$app->register(\Barryvdh\DomPDF\ServiceProvider::class);
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

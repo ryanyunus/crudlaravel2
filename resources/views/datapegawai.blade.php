@@ -12,6 +12,15 @@
     <h1 class="text-center mb-4">Data Pegawai!</h1>
     <div class="container">
       <a href="/tambahpegawai" class="btn btn-success">Tambah +</a> 
+        
+      <div class="row g-3 align-items-center mt-2"> 
+          <div class="col-auto"> 
+            <form action="/pegawai" method="GET">
+              <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+            </form>
+          </div>
+      </div>
+
       <div class="row">
          {{-- @if($massage = Session::get('success'))
           <div class="alert alert-success" role="alert">
@@ -59,6 +68,24 @@
           
         </tbody>
       </table>
+      
+      <div class="pagination mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item{{ ($data->currentPage() === 1) ? ' disabled' : '' }}">
+                <a class="page-link" href="{{ $data->previousPageUrl() }}">Previous</a>
+            </li>
+
+            @for ($i = 1; $i <= $data->lastPage(); $i++)
+                <li class="page-item{{ ($data->currentPage() === $i) ? ' active' : '' }}">
+                    <a class="page-link" href="{{ $data->url($i) }}">{{ $i }}</a>
+                </li>
+            @endfor
+
+            <li class="page-item{{ ($data->currentPage() === $data->lastPage()) ? ' disabled' : '' }}">
+                <a class="page-link" href="{{ $data->nextPageUrl() }}">Next</a>
+            </li>
+        </ul>
+    </div>
 
       </div>
     </div>
