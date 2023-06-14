@@ -12,6 +12,15 @@
     <h1 class="text-center mb-4">Data Pegawai!</h1>
     <div class="container">
       <a href="/tambahpegawai" class="btn btn-success">Tambah +</a> 
+        
+      <div class="row g-3 align-items-center mt-2"> 
+          <div class="col-auto"> 
+            <form action="/pegawai" mehtod="GET">
+              <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+            </form>
+          </div>
+      </div>
+
       <div class="row">
          {{-- @if($massage = Session::get('success'))
           <div class="alert alert-success" role="alert">
