@@ -19,7 +19,12 @@
               <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
             </form>
           </div>
+          <div class="col-auto"> 
+            <a href="/tambahpegawai" class="btn btn-success">Export +</a>
+          </div>
       </div>
+
+      
 
       <div class="row">
          {{-- @if($massage = Session::get('success'))
