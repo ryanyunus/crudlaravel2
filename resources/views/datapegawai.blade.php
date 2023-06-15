@@ -20,7 +20,7 @@
             </form>
           </div>
           <div class="col-auto"> 
-            <a href="/tambahpegawai" class="btn btn-success">Export +</a>
+            <a href="#" class="btn btn-info">Export Pdf</a>
           </div>
       </div>
 
