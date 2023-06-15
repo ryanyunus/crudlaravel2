@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use PDF;
+
+
+
 
 class EmployeeController extends Controller
 {
@@ -61,7 +65,13 @@ class EmployeeController extends Controller
         $data->delete();
         return redirect()->route('pegawai')->with('success','Data Berhasil Dihapus');
     }
-
+    public function exportpdf()
+    {
+        $data = Employee::all();
+        view()->share('data', $data);
+        $pdf = PDF::loadView('datapagawai-pdf');
+        return $pdf->download('data.pdf');
+    }
  
 }
 
