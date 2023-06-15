@@ -52,12 +52,12 @@
         @endphp
         @foreach ($data as $row)
         <tr>
-            <th scope="row">{{$no++}}</th>
+     
+            <th scope="row">{{$no + $data->firstItem()}}</th>
             <td>{{$row->nama}}</td>
             <td>
               <img src="{{ asset('fotopegawai/'.$row->foto) }}" alt="" style="width: 40px;">
            </td>
-          
             <td>{{$row->jeniskelamin}}</td>
             <td>{{$row->notelpon}}</td>
             <td>{{$row->created_at->format('D M Y')}}</td>
