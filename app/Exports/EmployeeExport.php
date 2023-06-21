@@ -12,6 +12,7 @@ class EmployeeExport implements FromCollection
     */
     public function collection()
     {
-        return Employee::all();
+      
+        return Employee::orderBy('id', 'asc')->get();
     }
 }
