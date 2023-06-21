@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Exports\EmployeeExport as ExportsEmployeeExport;
 use App\Models\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\EmployeeExport;
+
+
 
 
 
@@ -71,6 +77,9 @@ class EmployeeController extends Controller
         view()->share('data', $data);
         $pdf = PDF::loadView('datapagawai-pdf');
         return $pdf->download('data.pdf');
+    }
+    public function exportexcel(){
+        return Excel::download(new ExportsEmployeeExport, 'datapegawai.xlsx');
     }
  
 }
